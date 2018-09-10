@@ -27,22 +27,16 @@ pokemons = {
         "weakness": "grass"
     }
 }
-global player_pokemon
+
+
 player_pokemon = ""
-global player_attack
 player_attack = ""
-global player_type
 player_type = ""
-global player_hp
 player_hp = ""
 
-global opponent_pokemon
 opponent_pokemon = ""
-global opponent_hp
 opponent_hp = ""
-global opponent_attack
 opponent_attack =  ""
-global opponent_type
 opponent_type = ""
 
 
@@ -50,10 +44,6 @@ def main():
     print("-"*40)
     print("Welcome to a LIDL pokemon game")
     print("-"*40)
-    print(player_pokemon)
-    print(player_type)
-    print(player_attack)
-    print(player_hp)
     while True:
         menu()
         choice = input("Ange val: ")
@@ -81,11 +71,12 @@ def choose_pokemon():
         global player_pokemon
         player_pokemon = user_pokemon
         global player_hp
-        player_hp = round(random.uniform(0.5, 1.5) * chosen_pokemon["hp"])
+        player_hp = chosen_pokemon["hp"] * random.uniform(0.5, 1.5)
         global player_attack
-        player_attack = round(random.uniform(0.5, 1.5) * chosen_pokemon["damage"])
+        player_attack = chosen_pokemon["damage"]
         global player_type
         player_type = chosen_pokemon["type"] 
+        print(player_attack, player_hp, player_pokemon, player_type)
 
     else:
         print("There is no pokemon with this name")
@@ -93,6 +84,10 @@ def choose_pokemon():
 
 def fight():
     random_opponent_pokemon()
+    global opponent_hp
+    opponent_hp = opponent_hp
+    global player_hp
+    player_hp = player_hp
     if player_pokemon == "":
         print("You need to select a pokemon!")
         choose_pokemon()
@@ -101,33 +96,35 @@ def fight():
         print(opponent_pokemon, ",get him!")
         first_attack = random.randint(1,2)
         if first_attack == 1:
-            print("hej")
-        else:
-            player_hp = opponent_attack
-        while opponent_hp and player_hp is not 0:
             opponent_hp -= player_attack
-            time.sleep(5)
+        else:
             player_hp -= opponent_attack
-            time.sleep(5)
-        if opponent_hp <= 0:
-            print("Congratulations,", player_pokemon, "recieved 42 experience for winning!" )
-        elif player_hp <= 0:
-            print("You lost!")
+        while opponent_hp or player_hp is not 0:
+            if opponent_hp <= 0:
+                print("Congratulations,", player_pokemon, "recieved 42 experience for winning!")
+                break
+            elif player_hp <= 0:
+                print("You lost!")
+                break
+            opponent_hp -= round(player_attack * (random.uniform(0.5, 1.5)))
+            print(player_pokemon, "attacks", opponent_pokemon, "for", round(player_attack * (random.uniform(0.5, 1.5))), "damage")
+            print("The Player has", round(player_hp), "health and the opponent has", round(opponent_hp), "left!")
+            time.sleep(0.5)
+            player_hp -= round(opponent_attack * random.uniform(0.5, 1.5))
+            print(opponent_pokemon, "attacks", player_pokemon, "for", round(opponent_attack * (random.uniform(0.5, 1.5))), "damage")
+            print("The Player has", round(player_hp), "health and the opponent has", round(opponent_hp), "left!")
+            time.sleep(0.5)
             
 
-
-            
-            
-            
 def random_opponent_pokemon():
     pokemon_stats = list(pokemons.keys())
     choose_opponent_pokemon = random.choice(pokemon_stats)
     global opponent_pokemon
     opponent_pokemon = pokemons[choose_opponent_pokemon]
     global opponent_hp
-    opponent_hp = round(random.uniform(0.5, 1.5) * opponent_pokemon["hp"])
+    opponent_hp = opponent_pokemon["hp"] * random.uniform(0.5, 1.5)
     global opponent_attack
-    opponent_attack =  round(random.uniform(0.5, 1.5) * opponent_pokemon["damage"])
+    opponent_attack =  opponent_pokemon["damage"]
     global opponent_type
     opponent_type = opponent_pokemon["type"]
 
