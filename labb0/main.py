@@ -98,12 +98,16 @@ def choose_pokemon():
 def fight():
     global losses
     global wins
+
     random_opponent_pokemon()
+
     temp_opp_hp = opponent_hp
     temp_player_hp = player_hp
     temp_opponent_attack = opponent_attack
     temp_player_attack = player_attack
+    
     calculate_weakness()
+
     if player_pokemon == "":
         print("You need to choose a pokemon!")
         choose_pokemon()
@@ -171,7 +175,7 @@ def calculate_weakness():
     if player_type == "fire" and opponent_type == "grass":
         temp_player_attack *= 1.25
     elif opponent_type == "fire" and player_type == "grass":
-        temp_opponent_attack = player_attack * 1.25
+        temp_opponent_attack *= 1.25
     elif player_type == "water" and opponent_type == "fire":
         temp_player_attack *= 1.25
     elif opponent_type == "water" and player_type == "fire":
