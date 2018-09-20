@@ -21,7 +21,7 @@ class Dog(object):
         return self.name
     def __str__(self):
         """ Prints the name of the dog """
-        return "\n Name: %s \n Breed: %s \n Age: %s \n Is the dog sleeping? %s \n Colors: %s" %(self.name, self.breed, self.age, self.asleep, self.colors)
+        return "\n Name: %s \n Breed: %s \n Age: %s \n Is the dog sleeping? %s \n Colors: %s" %(self.name, self.breed, self.age, self.asleep, ", ".join(self.colors))
     def is_asleep(self, dog):
         """ Checks if the dogs are sleeping, if they are, wake them up """
         if dog.asleep == True:
@@ -35,7 +35,7 @@ class Dog(object):
 
 dogs = [
 Dog("Felix", "Corgi", "2", False, ["White", "Orange"]),
-Dog("Victor", "Tax", "1", True, "Brown"),
+Dog("Victor", "Tax", "1", True, ["Brown"]),
 Dog("Adam", "Boxer", "6", False, ["Brown", "White"]),
 Dog("Adam", "Schäfer", "4", False, ["Brown", "Black"]),
 Dog("John", "Dalmatin", "8", False, ["White", "Black"])
