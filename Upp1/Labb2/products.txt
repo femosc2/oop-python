@@ -1,0 +1,7 @@
+Example product 1,Example company,Software,DVD,199
+Example product 2,Example company,Software,USB,299
+Example product 3,Example company,Software,DVD,399
+Example product 4,Example company,Software,USB,499
+Test product 1,Test company,Software,DVD,299
+Ex 1,Ex company,Software,Software,199
+Looool,Felix,Software,Dopeshit,123
