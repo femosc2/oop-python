@@ -1,7 +1,7 @@
 # Product (base class)
 class Product():
     """
-    Creates a blueprint fora product
+    Creates a blueprint for the product
     """
 
     def __init__(self, name="", manufacturer="", category="", price=0):
