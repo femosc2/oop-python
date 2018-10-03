@@ -22,7 +22,8 @@ def create_user(**kwargs):
         print("Added!")
         print("*"*40)
     except pw.IntegrityError:
-        print(kwargs, "is already in the database!")
+        user = kwargs.pop('username')
+        print(user, "is already in the database!")
         pass  
 
 
@@ -50,12 +51,15 @@ def main():
     create_user(username="Felix", country="Sweden",
                 full_name="Felix Morau", password="1234",
                 email="felixmorau@gmail.com")
+
     create_user(username="Jens", country="Sweden",
                 full_name="Jensa K", password="1234",
                 email="jensaK@gmail.com")
+
     create_user(username="Kesse", country="Sweden",
                 full_name="Linse K", password="1234",
                 email="kesse@gmail.com")
+                
     create_messages(username=1, message="Loooool",
                 likes=1337)
 if __name__ == '__main__':
