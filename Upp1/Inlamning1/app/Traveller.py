@@ -3,7 +3,7 @@ from Luggage import Luggage
 
 class Traveller():
     """ Creates the blueprint for a traveller """
-    def __init__(self, name, age):
+    def __init__(self, name, age, ticket, luggage):
         """ Creates a new traveller object """
         self.name = name
         self.age = age

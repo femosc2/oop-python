@@ -25,7 +25,6 @@ class ControlMachine():
         if ticket == "Valid":
             if self.checkWeight(123) == True:
                 self.createLabel()
-                self.printLabel()
             else:
                 self.referToManualCheckout()
         else:
@@ -36,7 +35,4 @@ class ControlMachine():
         pass
     def createLabel(self):
         """ Creates the Label """
-        pass
-    def printLabel(self):
-        """ prints the label """
         pass
