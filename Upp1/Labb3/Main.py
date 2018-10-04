@@ -1,12 +1,12 @@
 from Users import User
-from Mweet import Message
+from Mweet import Mweet
 import peewee as pw
 
 def create_tables():
     ''' Our method where we will create the database tables'''
     try:
         User.create_table()
-        Message.create_table()
+        Mweet.create_table()
     except pw.OperationalError:
         print(" Users or Messages table already exists!")
 
@@ -27,15 +27,11 @@ def create_user(**kwargs):
         pass  
 
 
-def create_messages(**kwargs):
+def create_messages(username, message):
     ''' Our method where we will create message objects '''
-    #user_ref = User.get(User.username == User.username)
-
-    try:
-        msg = Message(**kwargs)
-        msg.save()
-    except:
-        pass
+    user_ref = User.get(User.username == username)
+    msg = Mweet(user=user_ref, message=message, likes=0)
+    msg.save()
     
 
 
@@ -59,8 +55,12 @@ def main():
     create_user(username="Kesse", country="Sweden",
                 full_name="Linse K", password="1234",
                 email="kesse@gmail.com")
+    
+    create_messages("Felix", "Hej")
+    create_messages("Felix", "Message")
+    create_messages("Felix", "Lol")
+    print_messages("Felix")
                 
-    create_messages(username=1, message="Loooool",
-                likes=1337)
+    
 if __name__ == '__main__':
     main()
