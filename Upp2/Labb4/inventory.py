@@ -26,11 +26,13 @@ class Inventory():
         for product in self.products:
             print(self.products.index(product))
         
-        userInput = int(input("What product id do you wish to sell "))
+        userInput = input("What product id do you wish to sell ")
 
         for product in self.products:
-            if userInput == int(product.id):
-                self.products.remove(userInput)
+            if userInput == product.id:
+                self.products.pop(userInput)
+            else:
+                print("lol")
 
 
     def returnInventory(self):

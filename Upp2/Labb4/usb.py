@@ -7,4 +7,4 @@ class Usb(Product):
         super().__init__(price, name, id)
         self.gb = gb
     def __str__(self):
-        return super().__str__() + "gb: {gb} ".format(gb=self.gb) 
+        return super().__str__() + "gb: {gb}".format(gb=self.gb) 

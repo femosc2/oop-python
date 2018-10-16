@@ -42,7 +42,7 @@ def print_messages(uname):
              print(msg.message)
 
 def main():
-    ''' out main method where we will call all other methods'''
+    ''' our main method where we will call all other methods'''
     create_tables()
     create_user(username="Felix", country="Sweden",
                 full_name="Felix Morau", password="1234",
