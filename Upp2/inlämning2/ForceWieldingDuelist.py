@@ -24,4 +24,4 @@ class ForceWieldingDuelist():
     def __str__(self):
         return "{rank}, {name} \n Strenght: {combatant_strenght} \n Lightsaber: {lightsaber}".format(rank=self.rank, name=self.name, lightsaber=self.lightsaber, combatant_strenght=self.combatant_strenght)
     def return_strenght(self):
-        return self.combatant_strenght
+        return self.combatant_strenght 

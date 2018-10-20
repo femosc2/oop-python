@@ -5,4 +5,4 @@ class Lightsaber():
         self.lightsaber_color = lightsaber_color
         self.hilt_type = hilt_type
     def __str__(self):
-        return self.hilt_type + " " + self.lightsaber_color + " lightsaber"
+        return self.hilt_type + " " + self.lightsaber_color + " lightsaber" 

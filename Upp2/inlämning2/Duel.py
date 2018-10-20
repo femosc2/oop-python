@@ -1,6 +1,5 @@
 from Location import Location
 
-
 class Duel():
     """ Blueprint for creating a new duel """
     def __init__(self, fighter1, fighter2):
@@ -12,8 +11,3 @@ class Duel():
             print("Fighter 1 won!")
         else:
             print(" Fighter 2 won!")
-        
-        
-            
-        
-    

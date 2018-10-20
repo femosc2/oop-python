@@ -6,4 +6,3 @@ class Rank():
         self.rank_strenght = rank_strenght
     def return_rank_strenght(self):
         return self.rank_strenght
-            

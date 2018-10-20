@@ -1,4 +1,3 @@
-
 from Sith import Sith
 from Jedi import Jedi
 from ForceWieldingDuelist import ForceWieldingDuelist
@@ -39,7 +38,6 @@ class Location():
             user_lightsaber_hilt = input("What kind of lightsaber does the duelist use?").lower()
         
         user_lightsaber_color = input("What color is the lightsaber? ")
-
         if user_allegiance == "sith":
             print("Available ranks:")
             print("Lord")
@@ -66,20 +64,16 @@ class Location():
                 print("Padawan")
                 user_rank = input("What is the rank of the Jedi?").lower()
             self.jedi_at_location.append(Jedi(user_name, user_force_power, user_rank, user_lightsaber_color, user_lightsaber_hilt))
-
     def list_jedi(self):
         print("These Jedi are currently at the location! ")
         for jedi in self.jedi_at_location:
             print(jedi)
-
     def list_sith(self):
         print("These Sith are currently at the location ")
         for sith in self.sith_at_location:
             print(sith)
-
     def return_duelists(self):
         return self.sith_at_location + self.jedi_at_location
-
     def choose_duelists(self):
         for duelist in Location.return_duelists(self):
             print(duelist.name)
@@ -90,7 +84,3 @@ class Location():
                 return duelist
             else:
                 print("lmao")
-            
-
-
-
