@@ -7,8 +7,12 @@ class Location():
     def __init__(self, location_name):
         """ Method for creating a new location """
         self.location_name = location_name
-        self.jedi_at_location = []
-        self.sith_at_location = []
+        self.jedi_at_location = [
+            Jedi("Lol", "lightning", "knight", "blue", "single")
+            ]
+        self.sith_at_location = [
+            Sith("Felix", "push", "lord", "red", "single")
+            ]
     def add_duelists(self):
         user_allegiance = input("Is the duelist a Jedi or a Sith? ").lower()
         while user_allegiance not in ["sith", "jedi"]:

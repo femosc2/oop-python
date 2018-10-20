@@ -1,3 +1,5 @@
+from random import randint
+
 from Lightsaber import Lightsaber
 from ForcePower import ForcePower
 from Rank import Rank
@@ -11,7 +13,7 @@ class ForceWieldingDuelist():
             self.rank = Rank(rank, 3)
         elif rank in ["knight", "maruader"]:
             self.rank = Rank(rank, 2)
-        elif rank in ["padawan" or "apprentice"]:
+        elif rank in ["padawan", "apprentice"]:
             self.rank = Rank(rank, 1)
         if force_name in ["lightning", "battle meditation"]:
             self.forcePower = ForcePower(force_name, 3)
@@ -22,6 +24,6 @@ class ForceWieldingDuelist():
         
         self.combatant_strenght = ForcePower.return_force_strenght(self.forcePower) + Rank.return_rank_strenght(self.rank)
     def __str__(self):
-        return "{rank}, {name} \n Strenght: {combatant_strenght} \n Lightsaber: {lightsaber}".format(rank=self.rank, name=self.name, lightsaber=self.lightsaber, combatant_strenght=self.combatant_strenght)
+        return "{rank} {name} \n Strenght: {combatant_strenght} \n Lightsaber: {lightsaber}".format(rank=self.rank, name=self.name, lightsaber=self.lightsaber, combatant_strenght=self.combatant_strenght)
     def return_strenght(self):
-        return self.combatant_strenght 
+        return self.combatant_strenght + randint(0,6) 

@@ -2,19 +2,12 @@ from Location import Location
 from Duel import Duel
 from ForcePower import ForcePower
 from Rank import Rank
-from Sith import Sith  # GLÖM INTE TA BORT
-from Jedi import Jedi  # GLÖM INTE TA BORT
-
 
 class Program():
     """ Creates a blueprint for the program """
 
     def __init__(self):
         """ pass """
-        self.jedi_at_location = [
-            Jedi("Lol", "lightning", "knight", "blue", "single")]
-        self.sith_at_location = [
-            Sith("Felix", "push", "lord", "red", "single")]
 
     def create_assets(self):
         pass
@@ -23,7 +16,7 @@ class Program():
         try:
             self.create_assets()
             user_input = input("Where do you wish to fight?")
-            Location(user_input)
+            location = Location(user_input)
             while True:
                 print("Welcome to the Star Wars battle simulator!")
                 print("1. Add a duelist! ")
@@ -33,15 +26,21 @@ class Program():
                 print("0. Exit")
                 menu_input = input("What do you wish to do?")
                 if menu_input == "1":
-                    Location.add_duelists(self)
-                if menu_input == "2":
-                    Location.list_jedi(self)
-                if menu_input == "3":
-                    Location.list_sith(self)
-                if menu_input == "4":
-                    duelist1 = Location.choose_duelists(self)
-                    duelist2 = Location.choose_duelists(self)
+                    Location.add_duelists(location)
+                elif menu_input == "2":
+                    Location.list_jedi(location)
+                elif menu_input == "3":
+                    Location.list_sith(location)
+                elif menu_input == "4":
+                    duelist1 = Location.choose_duelists(location)
+                    duelist2 = Location.choose_duelists(location)
                     Duel(duelist1, duelist2).duel()
+                elif menu_input == "0":
+                    print("-"*40)
+                    print(" May the force be with you!")
+                    print("-"*40)
+                    quit()
+                
         except KeyboardInterrupt:
             print("\n", "-"*40)
             print(" May the force be with you!")
