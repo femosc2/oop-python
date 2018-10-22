@@ -8,12 +8,17 @@ class Location():
         """ Method for creating a new location """
         self.location_name = location_name
         self.jedi_at_location = [
-            Jedi("Lol", "lightning", "knight", "blue", "single")
+            Jedi("Luke123", "push", "knight", "green", "single"),
+            Jedi("Lol", "lightning", "knight", "blue", "single"),
+            Jedi("Lukeskywalker", "heal", "knight", "green", "single")
             ]
         self.sith_at_location = [
-            Sith("Felix", "push", "lord", "red", "single")
+            Sith("Vader123", "heal", "knight", "green", "single"),            
+            Sith("Felix", "push", "lord", "red", "single"),
+            Sith("Darthvader", "choke", "lord", "red", "single")
             ]
     def add_duelists(self):
+        """ Allows the user to create a new duelist and adds them to the list of available fighters """
         user_allegiance = input("Is the duelist a Jedi or a Sith? ").lower()
         while user_allegiance not in ["sith", "jedi"]:
             user_allegiance = input("Please choose between Jedi or Sith").lower()
@@ -68,23 +73,30 @@ class Location():
                 print("Padawan")
                 user_rank = input("What is the rank of the Jedi?").lower()
             self.jedi_at_location.append(Jedi(user_name, user_force_power, user_rank, user_lightsaber_color, user_lightsaber_hilt))
-    def list_jedi(self):
-        print("These Jedi are currently at the location! ")
+
+    def list_duelists(self):
+        for fighter in self.sith_at_location + self.jedi_at_location:
+            print(fighter)
+
+    def choose_jedi(self):
         for jedi in self.jedi_at_location:
-            print(jedi)
-    def list_sith(self):
-        print("These Sith are currently at the location ")
-        for sith in self.sith_at_location:
-            print(sith)
-    def return_duelists(self):
-        return self.sith_at_location + self.jedi_at_location
-    def choose_duelists(self):
-        for duelist in Location.return_duelists(self):
-            print(duelist.name)
+            print(jedi.name)
         choose_your_fighter = input("Who do you wish to pick?").capitalize()
-        for duelist in Location.return_duelists(self):
-            if choose_your_fighter in duelist.name:
-                print("sucess")
-                return duelist
-            else:
-                print("lmao")
+        for jedi in self.jedi_at_location:
+            while choose_your_fighter not in jedi.name:
+                choose_your_fighter = input("Who do you wish to pick?").capitalize()
+            if choose_your_fighter in jedi.name:
+                print("success")
+                return jedi
+                
+    def choose_sith(self):
+        for sith in self.sith_at_location:
+            print(sith.name)
+            
+        choose_your_fighter = input("Who do you wish to pick?").capitalize()
+        for sith in self.sith_at_location:
+            while choose_your_fighter not in sith.name:
+                choose_your_fighter = input("Who do you wish to pick?").capitalize()
+            if choose_your_fighter in sith.name:
+                print("success")
+                return sith

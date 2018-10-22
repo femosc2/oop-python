@@ -5,4 +5,5 @@ class ForcePower():
         self.force_name = force_name
         self.force_strenght = force_strenght
     def return_force_strenght(self):
-       return self.force_strenght
+        """ Returns the strenght of the force power """
+        return self.force_strenght

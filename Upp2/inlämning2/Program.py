@@ -20,20 +20,17 @@ class Program():
             while True:
                 print("Welcome to the Star Wars battle simulator!")
                 print("1. Add a duelist! ")
-                print("2. List all Jedi ")
-                print("3. List all Sith ")
-                print("4. Duel! ")
+                print("2. List all duelists! ")
+                print("3. Duel! ")
                 print("0. Exit")
                 menu_input = input("What do you wish to do?")
                 if menu_input == "1":
                     Location.add_duelists(location)
                 elif menu_input == "2":
-                    Location.list_jedi(location)
+                    Location.list_duelists(location)
                 elif menu_input == "3":
-                    Location.list_sith(location)
-                elif menu_input == "4":
-                    duelist1 = Location.choose_duelists(location)
-                    duelist2 = Location.choose_duelists(location)
+                    duelist1 = Location.choose_jedi(location)
+                    duelist2 = Location.choose_sith(location)
                     Duel(duelist1, duelist2).duel()
                 elif menu_input == "0":
                     print("-"*40)
