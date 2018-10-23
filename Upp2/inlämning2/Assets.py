@@ -1,5 +1,7 @@
 from ForcePower import ForcePower
 from Rank import Rank
+from Jedi import Jedi
+from Sith import Sith
 
 class Assets():
     """ """
@@ -21,9 +23,15 @@ class Assets():
             Rank("marauder", 2),
             Rank("padawan", 1),
         ]
-    def get_force_powers(self):
-        return self.force_powers
-    def get_jedi_ranks(self):
-        return self.jedi_ranks
-    def get_sith_ranks(self):
-        return self.sith_ranks
+        self.jedi = [
+            Jedi("Bastila Shan", "battle meditation", "padawan"),
+            Jedi("Luke Skywalker", "push", "master"),
+            Jedi("Anakin Skywalker", "choke", "knight")
+            ]
+        self.sith = [
+            Sith("Darth Vader", "choke", "lord"),            
+            Sith("Darth Revan", "lightning", "lord"),
+            Sith("Darth Maul", "push", "apprentice")
+            ]
+
+            

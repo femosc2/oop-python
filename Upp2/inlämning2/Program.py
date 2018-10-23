@@ -22,12 +22,12 @@ class Program():
                 print("0. Exit")
                 menu_input = input("What do you wish to do?")
                 if menu_input == "1":
-                    Location.add_duelists(location)
+                    location.add_duelists()
                 elif menu_input == "2":
-                    Location.list_duelists(location)
+                    location.list_duelists()
                 elif menu_input == "3":
-                    duelist1 = Location.choose_jedi(location)
-                    duelist2 = Location.choose_sith(location)
+                    duelist1 = location.choose_jedi()
+                    duelist2 = location.choose_sith()
                     Duel(duelist1, duelist2).duel()
                 elif menu_input == "0":
                     print("-"*40)
