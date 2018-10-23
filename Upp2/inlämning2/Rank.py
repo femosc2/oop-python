@@ -4,7 +4,9 @@ class Rank():
         """ Creates a new rank object """
         self.rank_name = rank_name
         self.rank_strenght = rank_strenght
-    def return_rank_strenght(self):
+    def get_rank_strenght(self):
         return self.rank_strenght
+    def get_rank_name(self):
+        return self.rank_name
     def __str__(self):
-        return "{rank}".format(rank=self.rank_name)
+        return self.rank_name.capitalize()

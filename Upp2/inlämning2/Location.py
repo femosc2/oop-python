@@ -1,6 +1,7 @@
 from Sith import Sith
 from Jedi import Jedi
 from ForceWieldingDuelist import ForceWieldingDuelist
+from Assets import Assets
 
 class Location():
     """ Blueprint for creating a new location """
@@ -17,6 +18,8 @@ class Location():
             Sith("Felix", "push", "lord", "red", "single"),
             Sith("Darth vader", "choke", "lord", "red", "single")
             ]
+        self.assets = Assets()
+
     def add_duelists(self):
         """ Allows the user to create a new duelist and adds them to the list of available fighters """
         
@@ -24,15 +27,19 @@ class Location():
         while user_allegiance not in ["sith", "jedi"]:
             user_allegiance = str(input("Please choose between Jedi or Sith").lower())
 
-            user_name = str(input("What is the name of the duelist?"))
+        user_name = str(input("What is the name of the duelist?"))
 
         print("Available Force Powers!")
-        for force_power in ["lightning", "battle_meditaiton", "choke", "heal", "push"]:
-            print(force_power.capitalize())
-        user_force_power = input("What force power does the duelist use?").lower()
-        while user_force_power not in ["lightning", "battle meditation", "choke", "heal", "push"]:
-            print("Please choose an available force power! ")
-            user_force_power = input("What force power does the duelist use?").lower()
+        for force_power in self.assets.get_force_powers():
+            print(force_power.force_name.capitalize())
+
+        loop = True    
+        while loop:
+            user_force_power = str(input("What force power does the duelist use?")).lower()
+            for force_power in self.assets.force_powers:
+                if force_power.force_name == user_force_power:
+                    loop = False
+                    user_force_power == force_power.force_name
 
         for lightsaber in ["single", "dual-wield", "double-bladed"]:
             print(lightsaber.capitalize())
@@ -46,25 +53,26 @@ class Location():
         user_lightsaber_color = input("What color is the lightsaber? ")
         if user_allegiance == "sith":
             print("Available ranks:")
-            for rank in ["lord", "marauder", "apprentice"]:
-                print(rank.capitalize())
-            user_rank = input("What is the rank of the Sith?").lower()
-            while user_rank not in ["lord", "apprentice", "marauder"]:
-                print("Available ranks:")
-                for rank in ["lord", "marauder", "apprentice"]:
-                    print(rank.capitalize())
+            for rank in self.assets.get_sith_ranks():
+                print(rank)
+            loop = True    
+            while loop:
                 user_rank = input("What is the rank of the Sith?").lower()
+                for rank in self.assets.sith_ranks:
+                    if rank.rank_name == user_rank:
+                        loop = False
             self.sith_at_location.append(Sith(user_name, user_force_power, user_rank, user_lightsaber_color, user_lightsaber_hilt))
+
         elif user_allegiance == "jedi":
             print("Available ranks:")
-            for rank in ["master", "knight", "padawan"]:
-                print(rank.capitalize())
-            user_rank = input("What is the rank of the Jedi?").lower()
-            while user_rank not in ["master", "padawan", "knight"]:
-                print("Available ranks:")
-                for rank in ["master", "knight", "padawan"]:
-                    print(rank.capitalize())
+            for rank in self.assets.jedi_ranks:
+                print(rank)
+            loop = True    
+            while loop:
                 user_rank = input("What is the rank of the Jedi?").lower()
+                for rank in self.assets.jedi_ranks:
+                    if rank.rank_name == user_rank:
+                        loop = False 
             self.jedi_at_location.append(Jedi(user_name, user_force_power, user_rank, user_lightsaber_color, user_lightsaber_hilt))
 
     def list_duelists(self):
@@ -72,25 +80,27 @@ class Location():
             print(fighter)
 
     def choose_jedi(self):
+        """ Lets the user choose a Jedi """
         for jedi in self.jedi_at_location:
-            print(jedi.name)
+            print(jedi.name.capitalize())
         choose_your_fighter = input("Who do you wish to pick?").capitalize()
-        res = True
-        while res:
+        loop = True
+        while loop:
             for jedi in self.jedi_at_location:
                 if jedi.name == choose_your_fighter:
-                    res = False
+                    loop = False
                     return jedi
                 
     def choose_sith(self):
+        """ Lets the user choose a sith """
         for sith in self.sith_at_location:
-            print(sith.name)
+            print(sith.name.capitalize())
             
         choose_your_fighter = input("Who do you wish to pick?").capitalize()
 
-        res = True
-        while res:
+        loop = True
+        while loop:
             for sith in self.sith_at_location:
                 if sith.name == choose_your_fighter:
-                    res = False
+                    loop = False
                     return sith

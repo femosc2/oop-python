@@ -2,6 +2,7 @@ from Location import Location
 from Duel import Duel
 from ForcePower import ForcePower
 from Rank import Rank
+from Assets import Assets
 
 class Program():
     """ Creates a blueprint for the program """
@@ -9,12 +10,8 @@ class Program():
     def __init__(self):
         """ pass """
 
-    def create_assets(self):
-        pass
-
     def run(self):
         try:
-            self.create_assets()
             user_input = input("Where do you wish to fight?")
             location = Location(user_input)
             while True:
