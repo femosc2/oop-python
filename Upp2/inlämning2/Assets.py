@@ -13,25 +13,17 @@ class Assets():
             ForcePower("lightning", 3),
             ForcePower("battle meditation", 3)
         ]
+
         self.jedi_ranks = [
             Rank("master", 3),
             Rank("knight", 2),
             Rank("padawan", 1),
         ]
+
         self.sith_ranks = [
             Rank("lord", 3),
             Rank("marauder", 2),
-            Rank("padawan", 1),
+            Rank("apprentice", 1),
         ]
-        self.jedi = [
-            Jedi("Bastila Shan", "battle meditation", "padawan"),
-            Jedi("Luke Skywalker", "push", "master"),
-            Jedi("Anakin Skywalker", "choke", "knight")
-            ]
-        self.sith = [
-            Sith("Darth Vader", "choke", "lord"),            
-            Sith("Darth Revan", "lightning", "lord"),
-            Sith("Darth Maul", "push", "apprentice")
-            ]
 
             

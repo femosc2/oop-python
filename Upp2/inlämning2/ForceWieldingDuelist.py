@@ -4,25 +4,11 @@ from Rank import Rank
 
 class ForceWieldingDuelist():
     """ Blueprint for creating a new fighter """
-    def __init__(self, name, force_name, rank):
+    def __init__(self, name, force_name, force_strenght, rank, rank_strenght):
         """ Creates a new Force Wielding Duelist """
         self.name = name # The name of the duelist
-        if rank in ["master", "lord"]: # Creates a new rank depending on what name the rank has.
-            self.rank = Rank(rank, 3)
-        elif rank in ["knight", "marauder"]:
-            self.rank = Rank(rank, 2)
-        elif rank in ["padawan", "apprentice"]:
-            self.rank = Rank(rank, 1)
-        else:
-            self.rank = Rank(rank, 2)
-        if force_name in ["lightning", "battle meditation"]: # Creates a new forcepower depending on what rank the forcepower has.
-            self.forcePower = ForcePower(force_name, 3)
-        elif force_name in ["choke", "heal"]:
-            self.forcePower = ForcePower(force_name, 2)
-        elif force_name == "push":
-            self.forcePower = ForcePower(force_name, 1)
-        else:
-            self.forcePower = ForcePower(force_name, 2)
+        self.rank = Rank(rank, rank_strenght)
+        self.forcePower = ForcePower(force_name, force_strenght)
         
         self.combatant_strenght = ForcePower.get_force_strenght(self.forcePower) + Rank.get_rank_strenght(self.rank) # Takes the force_strenght and rank_strenght and combines them into a value
     def __str__(self):

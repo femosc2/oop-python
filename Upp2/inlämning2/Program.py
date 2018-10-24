@@ -1,8 +1,6 @@
 from Location import Location
 from Duel import Duel
-from ForcePower import ForcePower
 from Rank import Rank
-from Assets import Assets
 
 class Program():
     """ Creates a blueprint for the program """
