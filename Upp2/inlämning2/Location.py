@@ -76,8 +76,8 @@ class Location():
                 if jedi.name == choose_your_fighter:
                     loop = False
                     return jedi
-                else:
-                    choose_your_fighter = input("Who do you wish to pick?").capitalize()
+            else:
+                choose_your_fighter = input("Who do you wish to pick?").capitalize()
                 
     def choose_sith(self):
         """ Lets the user choose a sith """
@@ -91,5 +91,5 @@ class Location():
                 if sith.name == choose_your_fighter:
                     loop = False
                     return sith
-                else:
-                    choose_your_fighter = input("Who do you wish to pick?").capitalize()
+            else:
+                choose_your_fighter = input("Who do you wish to pick?").capitalize()
