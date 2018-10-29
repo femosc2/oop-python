@@ -10,6 +10,7 @@ class Duel():
         
     def duel(self):
         """ Checks the combatant_strenght attributes of two different fighters and decides the winner """
+        
         if self.fighter1.get_strenght() < self.fighter2.get_strenght():
             print("*"*40)
             print(self.fighter1.name, "won!")

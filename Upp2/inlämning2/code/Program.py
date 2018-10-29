@@ -6,11 +6,13 @@ class Program():
     """ Creates a blueprint for the program """
 
     def __init__(self):
-        """ pass """
+        """ Not used """
 
     def run(self):
+        """ Method which shows a menu and allows the user to do inputs for selecting what action he or she wants to do """
+
         try:
-            user_input = input("Where do you wish to fight?")
+            user_input = input("Where do you wish to fight?") #The user decides where he or she wants to fight
             location = Location(user_input)
             while True:
                 print("Welcome to the Star Wars battle simulator!")
@@ -33,11 +35,13 @@ class Program():
                     print("-"*40)
                     quit()
                 
-        except KeyboardInterrupt:
+        except KeyboardInterrupt: # removes the error text when the user uses keyboard shortcuts to exit the program
             print("\n", "-"*40)
             print(" May the force be with you!")
             print("-"*40)
             quit()
-if __name__ == "__main__":
+
+
+if __name__ == "__main__": #runs the program
     program = Program()
     program.run()

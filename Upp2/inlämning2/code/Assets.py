@@ -4,8 +4,10 @@ from Jedi import Jedi
 from Sith import Sith
 
 class Assets():
-    """ """
+    """ Blueprint for a psuedo database """
     def __init__(self):
+        """ Creates assets for the program """
+        
         self.force_powers = [
             ForcePower("push", 1),
             ForcePower("choke", 2),
